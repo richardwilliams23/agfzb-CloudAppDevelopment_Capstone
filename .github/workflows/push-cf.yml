@@ -1,5 +1,6 @@
 name: Build and deploy to IBM Cloud Foundry
 
+# the workflow will be triggered when someone manually clicks on the Run button.
 on: workflow_dispatch
 
 # Environment variables available to all jobs and steps in this workflow
@@ -7,7 +8,7 @@ env:
   IBM_CLOUD_REGION: us-south
   IBM_CLOUD_GROUP: default
   IBM_CLOUD_SPACE: dev
-  IBM_CLOUD_ORG:
+  IBM_CLOUD_ORG: richardwilliams23@yahoo.co.uk 
   MANIFEST_NAME: manifest.yml
   IBM_CLOUD_API: ${{secrets.IBM_CLOUD_API_KEY}}
 
