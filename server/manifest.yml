@@ -1,10 +1,10 @@
   applications:
-  - name: djangoapp
+  - name: rw1
     routes:
       - route: rw1.us-south.cf.appdomain.cloud
     memory: 128M
     buildpack: python_buildpack
-  - name: djangoapp-nginx
+  - name: rw1-nginx
     routes:
       - route: rw1.us-south.cf.appdomain.cloud/static
     memory: 128M
