@@ -5,17 +5,19 @@
 const { CloudantV1 } = require('@ibm-cloud/cloudant');
 const { IamAuthenticator } = require('ibm-cloud-sdk-core');
 
-function main(params) {
 
+function main(params) {
     const authenticator = new IamAuthenticator({ apikey: params.IAM_API_KEY })
     const cloudant = CloudantV1.newInstance({
       authenticator: authenticator
     });
+
     cloudant.setServiceUrl(params.COUCH_URL);
 
     let dbListPromise = getDbs(cloudant);
     return dbListPromise;
 }
+
 
 function getDbs(cloudant) {
      return new Promise((resolve, reject) => {
@@ -24,7 +26,7 @@ function getDbs(cloudant) {
                  resolve({ dbs: body.result });
              })
              .catch(err => {
-                  console.log(err);
+                 console.log(err);
                  reject({ err: err });
              });
      });
@@ -32,7 +34,8 @@ function getDbs(cloudant) {
  
  
  /*
- Sample implementation to get the records in a db based on a selector. If selector is empty, it returns all records. 
+ Sample implementation to get the records in a db based on a selector. 
+ If selector is empty, it returns all records. 
  eg: selector = {state:"Texas"} - Will return all records which has value 'Texas' in the column 'State'
  */
  function getMatchingRecords(cloudant,dbname, selector) {

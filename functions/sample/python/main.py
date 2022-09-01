@@ -15,6 +15,7 @@ import requests
 def main(dict):
     databaseName = "dealerships"
 
+    # Authenticate with the IBM Cloudant service using the username and api key
     try:
         client = Cloudant.iam(
             account_name=dict["COUCH_USERNAME"],
@@ -29,4 +30,5 @@ def main(dict):
         print("connection error")
         return {"error": err}
 
+    # Retrieve all the databases.
     return {"dbs": client.all_dbs()}
