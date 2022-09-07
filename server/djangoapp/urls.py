@@ -22,12 +22,13 @@ urlpatterns = [
 
     # E.g. 127.0.0.1:8000/djangoapp/.  Should return all dealerships.
     path(route='', view=views.get_dealerships, name='index'),
+    path(route='index/', view=views.get_dealerships, name='index'),
 
     # E.g. 127.0.0.1:8000/djangoapp/dealer/13/.  Should return reviews for dealer 13.
     path('dealer/<int:id>/', views.get_dealer_details, name='dealer_details'),
 
     # E.g. 127.0.0.1:8000/djangoapp/dealer/13/review
-    path(route='dealer/<int:id>/review', view=views.add_review, name='add_review'),
+    path(route='dealer/<int:id>/add-review', view=views.add_review, name='add_review'),
 
     # E.g. 127.0.0.1:8000/djangoapp/review/13/
     path(route='review/<int:id>/', view=views.add_review, name='add_review'),

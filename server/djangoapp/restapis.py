@@ -88,7 +88,6 @@ def get_dealers_from_cf(url, **kwargs):
                 zip        = dealer_doc['zip'])
             results.append(dealer_obj)
 
-            print('')
             print( dealer_obj )
     else:
         result = 'Unknown error'
@@ -199,12 +198,12 @@ def get_dealer_reviews_from_cf(url, **kwargs):
                 review_obj.id = review["id"]
             if "purchase_date" in review:
                 review_obj.purchase_date = review["purchase_date"]
-            if "car_make" in review:
-                review_obj.car_make = review["car_make"]
-            if "car_model" in review:
-                review_obj.car_model = review["car_model"]
-            if "car_year" in review:
-                review_obj.car_year = review["car_year"]
+            if "make" in review:
+                review_obj.make = review["make"]
+            if "model" in review:
+                review_obj.model = review["model"]
+            if "year" in review:
+                review_obj.year = review["year"]
 
             review_obj.sentiment = analyze_review_sentiments( review_obj.review )
 
