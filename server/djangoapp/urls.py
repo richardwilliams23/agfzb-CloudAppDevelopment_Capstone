@@ -33,4 +33,5 @@ urlpatterns = [
     # E.g. 127.0.0.1:8000/djangoapp/review/13/
     path(route='review/<int:id>/', view=views.add_review, name='add_review'),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)\
+ + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
